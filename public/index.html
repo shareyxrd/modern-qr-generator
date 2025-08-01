@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- QR Code Generator - Created by @shareyxrd -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - QR Kod Oluşturucu</title>
+    <meta name="description" content="Profesyonel QR kod oluşturucu. URL, WiFi, vCard, SMS ve daha fazlası için QR kod oluşturun.">
+    <meta name="keywords" content="QR kod, QR code generator, QR kod oluşturucu, profesyonel">
+    <meta name="author" content="shareyxrd">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-qrcode"></i>
+                <span>QR Generator</span>
+            </div>
+            <div class="header-info">
+                <span>QR Generator</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>🚀 QR Kod Oluşturucu</h1>
+                <p>Herhangi bir metin, URL, WiFi bilgisi veya kişi bilgisi için anında QR kod oluşturun. Node.js ile güçlendirilmiş!</p>
+            </section>
+
+            <!-- Generator Container -->
+            <div class="generator-container">
+                <div class="input-section">
+                    <!-- Type Selector -->
+                    <div class="type-selector">
+                        <h3>QR Kod Türü Seçin</h3>
+                        <div class="type-buttons">
+                            <button class="type-btn active" data-type="text">
+                                <i class="fas fa-font"></i>
+                                Metin
+                            </button>
+                            <button class="type-btn" data-type="url">
+                                <i class="fas fa-link"></i>
+                                URL
+                            </button>
+                            <button class="type-btn" data-type="wifi">
+                                <i class="fas fa-wifi"></i>
+                                WiFi
+                            </button>
+                            <button class="type-btn" data-type="vcard">
+                                <i class="fas fa-address-card"></i>
+                                vCard
+                            </button>
+                            <button class="type-btn" data-type="sms">
+                                <i class="fas fa-sms"></i>
+                                SMS
+                            </button>
+                            <button class="type-btn" data-type="email">
+                                <i class="fas fa-envelope"></i>
+                                E-posta
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input Forms -->
+                    <div class="input-forms">
+                        <!-- Text Input -->
+                        <div class="input-form active" id="text-form">
+                            <h3>Metin Girin</h3>
+                            <textarea id="text-input" placeholder="QR koda dönüştürmek istediğiniz metni buraya yazın..."></textarea>
+                        </div>
+
+                        <!-- URL Input -->
+                        <div class="input-form" id="url-form">
+                            <h3>URL Girin</h3>
+                            <input type="url" id="url-input" placeholder="https://example.com">
+                        </div>
+
+                        <!-- WiFi Input -->
+                        <div class="input-form" id="wifi-form">
+                            <h3>WiFi Bilgileri</h3>
+                            <input type="text" id="wifi-ssid" placeholder="Ağ Adı (SSID)">
+                            <input type="password" id="wifi-password" placeholder="Şifre">
+                            <select id="wifi-security">
+                                <option value="WPA">WPA/WPA2</option>
+                                <option value="WEP">WEP</option>
+                                <option value="nopass">Şifresiz</option>
+                            </select>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="wifi-hidden">
+                                Gizli ağ
+                            </label>
+                        </div>
+
+                        <!-- vCard Input -->
+                        <div class="input-form" id="vcard-form">
+                            <h3>Kişi Bilgileri</h3>
+                            <div class="form-row">
+                                <input type="text" id="vcard-firstname" placeholder="Ad">
+                                <input type="text" id="vcard-lastname" placeholder="Soyad">
+                            </div>
+                            <input type="text" id="vcard-organization" placeholder="Şirket/Organizasyon">
+                            <input type="tel" id="vcard-phone" placeholder="Telefon">
+                            <input type="email" id="vcard-email" placeholder="E-posta">
+                            <input type="url" id="vcard-website" placeholder="Website">
+                            <textarea id="vcard-address" placeholder="Adres"></textarea>
+                        </div>
+
+                        <!-- SMS Input -->
+                        <div class="input-form" id="sms-form">
+                            <h3>SMS Bilgileri</h3>
+                            <input type="tel" id="sms-phone" placeholder="Telefon Numarası">
+                            <textarea id="sms-message" placeholder="Mesaj içeriği..."></textarea>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="input-form" id="email-form">
+                            <h3>E-posta Bilgileri</h3>
+                            <input type="email" id="email-to" placeholder="Alıcı e-posta adresi">
+                            <input type="text" id="email-subject" placeholder="Konu">
+                            <textarea id="email-body" placeholder="Mesaj içeriği..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Customization Options -->
+                    <div class="customization">
+                        <h3>Özelleştirme</h3>
+                        <div class="custom-options">
+                            <div class="option-group">
+                                <label>Boyut:</label>
+                                <select id="qr-size">
+                                    <option value="200">200x200</option>
+                                    <option value="300" selected>300x300</option>
+                                    <option value="400">400x400</option>
+                                    <option value="500">500x500</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Ön Plan Rengi:</label>
+                                <input type="color" id="qr-foreground" value="#000000">
+                            </div>
+                            <div class="option-group">
+                                <label>Arka Plan Rengi:</label>
+                                <input type="color" id="qr-background" value="#ffffff">
+                            </div>
+                            <div class="option-group">
+                                <label>Hata Düzeltme:</label>
+                                <select id="qr-error-level">
+                                    <option value="L">Düşük (7%)</option>
+                                    <option value="M" selected>Orta (15%)</option>
+                                    <option value="Q">Yüksek (25%)</option>
+                                    <option value="H">Çok Yüksek (30%)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="generate-btn" id="generate-btn">
+                        <i class="fas fa-magic"></i>
+                        QR Kod Oluştur
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="qr-preview" id="qr-preview">
+                        <div class="placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>QR kodunuz burada görünecek</p>
+                        </div>
+                    </div>
+                    
+                    <div class="download-section hidden" id="download-section">
+                        <div class="download-buttons">
+                            <button class="download-btn" id="download-png">
+                                <i class="fas fa-download"></i>
+                                PNG İndir
+                            </button>
+                            <button class="download-btn" id="download-svg">
+                                <i class="fas fa-download"></i>
+                                SVG İndir
+                            </button>
+                        </div>
+                        <div class="qr-info" id="qr-info">
+                            <p><strong>Veri:</strong> <span id="qr-data-display"></span></p>
+                            <p><strong>Tür:</strong> <span id="qr-type-display"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section class="features">
+                <h2>✨ Özellikler</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-server"></i>
+                        <h3>Node.js Powered</h3>
+                        <p>Güvenilir Node.js backend ile hızlı ve stabil QR kod oluşturma.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Gizlilik Odaklı</h3>
+                        <p>Verileriniz hiçbir yerde saklanmaz. Her şey anlık olarak işlenir.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Özelleştirilebilir</h3>
+                        <p>Renk, boyut ve hata düzeltme seviyesi ile QR kodlarınızı özelleştirin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Çoklu Format</h3>
+                        <p>PNG ve SVG formatlarında yüksek kaliteli QR kodları indirin.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 QR Generator by <a href="https://instagram.com/shareyxrd" target="_blank">@shareyxrd</a></p>
+            <p>Node.js ile güçlendirilmiş ⚡</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>QR kod oluşturuluyor...</p>
+        </div>
+    </div>
+
+    <!-- Message Container -->
+    <div class="message-container" id="message-container"></div>
+
+    <!-- JavaScript - @shareyxrd -->
+    <script src="script.js"></script>
+</body>
+<!-- Created by @shareyxrd -->
+</html>
