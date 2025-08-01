@@ -227,7 +227,7 @@ Bu proje MIT lisansı altında lisanslanmıştır.
 
 ## 👨‍💻 Geliştirici
 
-**@shareyxrd** tarafından ❤️ ile geliştirilmiştir.
+**@shareyxrd** tarafından geliştirilmiştir.
 
 - Instagram: [@shareyxrd](https://instagram.com/shareyxrd)
 
@@ -239,5 +239,6 @@ Bu proje MIT lisansı altında lisanslanmıştır.
 ---
 
 ⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
 
 **© 2025 QR Generator by @shareyxrd**
